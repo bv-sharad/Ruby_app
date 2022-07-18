@@ -1,3 +1,1 @@
-# Ruby_app
-binary search tree 
-linked list
+Implemented Binary search tree and Linked List in Ruby
