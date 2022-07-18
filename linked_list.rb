@@ -35,7 +35,7 @@ class LinkedList
 			@head = current_node.next_node
 		else
 			while (current_node.next_node) && (current_node.next_node.value != value)
-					current_node = current_node.next_node
+				current_node = current_node.next_node
 			end
 			current_node.next_node = current_node.next_node.next_node
 		end
