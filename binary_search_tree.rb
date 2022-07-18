@@ -113,13 +113,6 @@ class BinarySearchTree
 		root
 	end
 
-	# method to find inorder predecessor of a node
-	def find_min(root)
-		return root if root.nil?
-		return root if root.nil? || root.left.nil?
-		find_min(root.left)
-	end
-
 	#method to remove a node from the tree
 	def delete_node(root, key)
 		if root.nil?
