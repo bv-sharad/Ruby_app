@@ -62,8 +62,8 @@ def main()
 				print " Press 2 to print preorder traversal \n"
 				print " Press 3 to print postorder traversal \n"
 				print " Press 4 to print levelorder traversal \n"
-				t = gets.chomp.to_i
-				case t
+				traversal = gets.chomp.to_i
+				case traversal
 				when 1
 					tree.inorder(tree.root_node)
 					print "\n"
@@ -116,8 +116,8 @@ def main()
 				print "Choose an option\n"
 				print "1- Enter the elements of the list (seperated by comma) \n"
 				print "2- Read from file \n"
-				r=gets.chomp.to_i
-				case r
+				reading = gets.chomp.to_i
+				case reading
 				when 1
 					elements = gets.chomp
 				when 2
@@ -131,8 +131,8 @@ def main()
 				print "list is successfully generated \n "
 			when 2
 				print "Enter element to be searched \n"
-				s = gets.chomp.to_i
-				if linked_list.find(s).nil?
+				search_element = gets.chomp.to_i
+				if linked_list.find(search_element).nil?
 					print " Element is not present \n"
 				else
 					print " Element is present \n"
