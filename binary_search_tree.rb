@@ -10,9 +10,7 @@ class BinarySearchTree
 	end
 	#method to add new nodes in the binary search tree
 	def insert(node, value)
-		if node.nil?
-			return Node.new(value)
-		elsif node.value.nil?
+		if node.nil? || node.value.nil?
 			return Node.new(value)
 		elsif node.value < value
 			node.right = insert(node.right, value)
@@ -24,9 +22,9 @@ class BinarySearchTree
 
 	# method to find minimum node in the tree
 	def find_min(node)
+		return if node.nil?
 		if node.left.nil?
-			min_node = node
-			return min_node
+			return node
 		else
 			find_min(node.left)
 		end
@@ -34,10 +32,8 @@ class BinarySearchTree
 
 	# method to find maximum node in the binary search tree
 	def find_max(node)
-		if node.nil?
+		if node.nil? || node.right.nil?
 			return node	
-		elsif node.right.nil?
-			return node
 		else
 			find_max(node.right)
 		end
@@ -70,11 +66,9 @@ class BinarySearchTree
 
 	#method to add elemwnts in the output file upon exit
 	def modified_inorder(node, str)
-		if node.nil?
-			return str
-		end
+		return str if node.nil?
 		str = modified_inorder(node.left,str)
-		str = str + "," unless str.empty?
+		str = str + "," if str.present?
 		str = str + "#{node.value}"
 		str = modified_inorder(node.right,str)
 		str
@@ -100,14 +94,14 @@ class BinarySearchTree
 	end
 
 	# method to search an element in the tree
-	def search(node,value)
-		return nil if node.nil? 
+	def search(node, value)
+		return if node.nil? 
 		if node.value == value
 			return node
 		elsif node.value < value
-			search node.right, value
+			search(node.right, value)
 		else
-			search node.left, value
+			search(node.left, value)
 		end
 	end
 
@@ -149,7 +143,7 @@ class BinarySearchTree
 	end
 
 	# method to print all the paths from root to leaf 
-	def print_paths node, path
+	def print_paths(node, path)
 		return if node.nil?
 		if node.left.nil? && node.right.nil?
 			print(path, " ", node.value, "\n")

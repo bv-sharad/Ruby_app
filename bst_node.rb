@@ -4,8 +4,8 @@ class Node
   attr_accessor :left,:right
 
   def initialize(value = nil)
-    @value=value
-    left=nil;
-    right=nil;
+    @value = value
+    left = nil;
+    right = nil;
   end
 end

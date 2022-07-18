@@ -3,21 +3,17 @@ require_relative "binary_search_tree"
 
 # main funtion for the app
 def main()
-
 	#welcome menu
 	print " Welcome to Data Structures \n"
 	print " Press 1 for BinarySearchTree \n"
 	print " Press 2 for LinkedList \n"
 	print " Press 0 to exit \n"
 	input = gets.chomp.to_i
-
 	#initialization of the bst and linkedlist objects
 	tree = BinarySearchTree.new()
 	linked_list = LinkedList.new()
 	input1 = 1
-
 	while input1
-
 		# Option to operate on the binary search tree
 		if input == 1
 			print "\n Welcome to BinarySearchTree \n"
@@ -30,7 +26,6 @@ def main()
 			print " Press 7 to print all the paths i.e starting from root to the leaf \n"
 			print " Press 0 to exit \n"
 			input1 = gets.chomp.to_i
-
 			# options for taking input
 			case input1
 			when 1
@@ -43,19 +38,18 @@ def main()
 					elements = gets.chomp
 				when 2
 					#Reading from the file
-					File.open("input.txt", "r") do |f|
-						elements = f.read()
-					end
+					File.open("input.txt", "r") {|f| elements = f.read()}
+					
 				end
 				elements1 = elements.split(",")
-				elements1.each{|n| tree.root_node = tree.insert(tree.root_node,n.to_i)}
+				elements1.each{|n| tree.root_node = tree.insert(tree.root_node, n.to_i)}
 				print "Tree is successfully generated \n "
 			when 2
 				max = tree.find_max(tree.root_node)
-				print "Largest element is #{ max.value } \n"
+				print "Largest element is #{max.value} \n"
 			when 3
-				min = tree.find_min(tree.root_node)
-				print "Smallest element is #{ min.value } \n"
+				min i= tree.find_min(tree.root_node)
+				print "Smallest element is #{min.value} \n"
 			when 4
 				#different traversals of the tree
 				print " Press 1 to print inorder traversal \n"
@@ -92,8 +86,7 @@ def main()
 			when 7
 				tree.print_paths(tree.root_node," ")
 			else
-				text = ""
-				text = tree.modified_inorder(tree.root_node,text)
+				text = tree.modified_inorder(tree.root_node,"")
 				puts text
 				File.write("output.txt", text)
 				break
@@ -109,7 +102,6 @@ def main()
 			print " Press 5 to reverse a linked list \n"
 			print " Press 0 to exit \n"
 			input1 = gets.chomp.to_i
-
 			case input1
 			when 1
 				#option to take input for the list
@@ -122,9 +114,7 @@ def main()
 					elements = gets.chomp
 				when 2
 					#reading from the file
-					File.open("input.txt", "r") do |f|
-						elements = f.read()
-					end
+					File.open("input.txt", "r") {|f| elements = f.read()}
 				end
 				elements1 = elements.split(",")
 				elements1.each{|n| tree.root_node = linked_list.addition(n.to_i)}
