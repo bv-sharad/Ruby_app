@@ -37,8 +37,8 @@ def main()
 				print "Choose an option\n"
 				print "1- Enter the elements of the tree (seperated by comma) \n"
 				print "2- Read from file \n"
-				r=gets.chomp.to_i
-				case r
+				readn = gets.chomp.to_i
+				case read
 				when 1
 					elements = gets.chomp
 				when 2
@@ -116,8 +116,8 @@ def main()
 				print "Choose an option\n"
 				print "1- Enter the elements of the list (seperated by comma) \n"
 				print "2- Read from file \n"
-				reading = gets.chomp.to_i
-				case reading
+				read = gets.chomp.to_i
+				case read
 				when 1
 					elements = gets.chomp
 				when 2
